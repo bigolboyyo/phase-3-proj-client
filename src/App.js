@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 const url = "http://localhost:9292";
 
@@ -64,39 +66,13 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          postFetch("users", setUsers);
-        }}
-      >
-        Post
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          patchFetch("users", setUsers, 2);
-        }}
-      >
-        PATCH
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          patchFetch("users", setUsers, 2);
-        }}
-      >
-        PATCH
-      </button>
-
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          deleteFetch("users", 2);
-        }}
-      >
-        DELETE
-      </button>
+      <Header />
+      <Body
+        postFetch={postFetch}
+        patchFetch={patchFetch}
+        deleteFetch={deleteFetch}
+        setUsers={setUsers}
+      />
     </div>
   );
 }
