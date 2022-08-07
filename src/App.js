@@ -1,26 +1,102 @@
-import logo from "./logo.svg";
 import "./App.css";
+import React, { useEffect, useState } from "react";
 
-// Testing for git push
-// FINAL TEST (hopefully)
+const url = "http://localhost:9292";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const getFetch = (endpoint, cb) => {
+    fetch(`${url}/${endpoint}`)
+      .then((r) => r.json())
+      .then((dta) => cb(dta));
+  };
+
+  // CORS ISSUE? Unexpected end of input JSON??
+  // dta still posts to server side but unable to console.log(dta)
+  function postFetch(ep, cb) {
+    fetch(`${url}/${ep}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        user_name: "Wes",
+        avatar_name: "Weses Avatar",
+      }),
+    })
+      .then((r) => r.json())
+      .then((dta) => {
+        console.log(dta);
+        cb(dta);
+      });
+  }
+
+  function patchFetch(ep, cb, id) {
+    fetch(`${url}/${ep}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        user_name: "NEW USER PATCH",
+        avatar_name: "PATCH FETCH NAME",
+      }),
+    })
+      .then((r) => r.json())
+      .then((dta) => cb(dta));
+  }
+
+  function deleteFetch(ep, id) {
+    fetch(`${url}/${ep}/${id}`, {
+      method: "DELETE",
+    });
+    getFetch(ep, setUsers);
+  }
+
+  useEffect(() => {
+    getFetch("avatars", setUsers);
+  }, []);
+
+  console.log(users);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          postFetch("users", setUsers);
+        }}
+      >
+        Post
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          patchFetch("users", setUsers, 2);
+        }}
+      >
+        PATCH
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          patchFetch("users", setUsers, 2);
+        }}
+      >
+        PATCH
+      </button>
+
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          deleteFetch("users", 2);
+        }}
+      >
+        DELETE
+      </button>
     </div>
   );
 }
