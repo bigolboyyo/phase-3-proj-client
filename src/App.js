@@ -30,7 +30,7 @@ function App() {
     })
       .then((r) => r.json())
       .then((dta) => {
-        console.log(dta);
+        //console.log(dta);
         cb(dta);
       });
   }
@@ -73,6 +73,7 @@ function App() {
         patchFetch={patchFetch}
         deleteFetch={deleteFetch}
         setUsers={setUsers}
+        userName={userName}
       />
     </div>
   );

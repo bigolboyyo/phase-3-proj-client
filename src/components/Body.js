@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ImageInputs from "./ImageInputs";
 import Avatar from "./Avatar";
 
-function Body({ postFetch }) {
+function Body({ postFetch, userName }) {
   const [avatar, setAvatar] = useState({});
 
   return (
@@ -15,7 +15,11 @@ function Body({ postFetch }) {
         gap: "1rem",
       }}
     >
-      <ImageInputs setAvatar={setAvatar} postFetch={postFetch} />
+      <ImageInputs
+        setAvatar={setAvatar}
+        postFetch={postFetch}
+        userName={userName}
+      />
       <Avatar avatar={avatar} />
     </div>
   );

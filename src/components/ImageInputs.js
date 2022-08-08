@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ImageInputs({ postFetch, setAvatar }) {
+function ImageInputs({ postFetch, setAvatar, userName }) {
   const [avName, setAvName] = useState("");
   const [head, setHead] = useState("");
   const [torso, setTorso] = useState("");
@@ -8,6 +8,7 @@ function ImageInputs({ postFetch, setAvatar }) {
   const [rightArm, setRightArm] = useState("");
   const [leftLeg, setLeftLeg] = useState("");
   const [rightLeg, setRightLeg] = useState("");
+
   function handleAvNameChange(e) {
     e.preventDefault();
     console.log(e.target.value);
@@ -53,6 +54,7 @@ function ImageInputs({ postFetch, setAvatar }) {
   function handleSubmit(e) {
     e.preventDefault();
     const avatar_rb = {
+      user_name: userName,
       avatar_name: avName,
       head: head,
       torso: torso,
@@ -61,9 +63,21 @@ function ImageInputs({ postFetch, setAvatar }) {
       left_leg: leftLeg,
       right_leg: rightLeg,
     };
+    const user_rb = {
+      user_name: userName,
+      avatar_name: avName,
+    };
     console.log(avatar_rb);
     setAvatar(avatar_rb);
     postFetch("avatars", setAvatar, avatar_rb);
+    postFetch("users", undefined, user_rb);
+    setAvName("");
+    setHead("");
+    setTorso("");
+    setLeftArm("");
+    setRightArm("");
+    setLeftLeg("");
+    setRightLeg("");
   }
 
   // console.log(avatar);
@@ -155,7 +169,7 @@ function ImageInputs({ postFetch, setAvatar }) {
             value={rightLeg}
           />
         </label>
-        <input style={{ alignSelf: "center" }} type="submit" value="Submit" />
+        <input style={{ alignSelf: "center" }} type="submit" />
       </form>
     </div>
   );

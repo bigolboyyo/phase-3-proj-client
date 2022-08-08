@@ -5,12 +5,16 @@ function Header() {
     <div
       style={{
         padding: "1rem",
-        paddingBottom: "1rem",
         background: "#296BB8",
         color: "white",
       }}
     >
-      Avatar Creator
+      <h1>Avatar Creator</h1>
+      <p
+        style={{ fonStyle: "italic", fontSize: "10px", paddingBottom: "1rem" }}
+      >
+        Submit png files of different body parts to create a custom avatar!
+      </p>
     </div>
   );
 }
