@@ -35,20 +35,23 @@ function App() {
       });
   }
 
-  function patchFetch(ep, cb, id) {
+  const patchObj = {};
+
+  function patchFetch(ep, cb, id, k, v) {
+    patchObj[k] = v;
     fetch(`${url}/${ep}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({
-        user_name: "NEW USER PATCH",
-        avatar_name: "PATCH FETCH NAME",
-      }),
+      body: JSON.stringify(patchObj),
     })
       .then((r) => r.json())
-      .then((dta) => cb(dta));
+      .then((dta) => {
+        console.log(dta);
+        cb(dta[k]);
+      });
   }
 
   function deleteFetch(ep, id) {

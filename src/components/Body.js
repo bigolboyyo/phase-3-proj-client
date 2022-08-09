@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ImageInputs from "./ImageInputs";
 import Avatar from "./Avatar";
 
-function Body({ postFetch, userName }) {
+function Body({ postFetch, userName, patchFetch }) {
   const [avatar, setAvatar] = useState({});
 
   return (
@@ -16,8 +16,10 @@ function Body({ postFetch, userName }) {
       }}
     >
       <ImageInputs
+        avatar={avatar}
         setAvatar={setAvatar}
         postFetch={postFetch}
+        patchFetch={patchFetch}
         userName={userName}
       />
       <Avatar avatar={avatar} />
