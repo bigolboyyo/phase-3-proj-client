@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
+function ImageInputs({
+  postFetch,
+  patchFetch,
+  setAvatar,
+  userName,
+  avatar,
+  deleteFetch,
+}) {
   const [avName, setAvName] = useState("");
   const [head, setHead] = useState("");
   const [torso, setTorso] = useState("");
@@ -125,6 +132,12 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
     patchFetch("avatars", setRightLeg, av.id, "right_leg", rightLeg);
   }
 
+  function deleteAvatar(e) {
+    e.preventDefault();
+    const av = avatar;
+    deleteFetch("avatars", av.id);
+  }
+
   return (
     <div style={{ paddingBottom: "2rem" }}>
       <form
@@ -146,7 +159,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={avName}
           />
           <button onClick={editAvName}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -159,7 +171,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={head}
           />
           <button onClick={editHead}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -172,7 +183,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={torso}
           />
           <button onClick={editTorso}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -185,7 +195,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={leftArm}
           />
           <button onClick={editLeftArm}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -198,7 +207,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={rightArm}
           />
           <button onClick={editRightArm}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -211,7 +219,6 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={leftLeg}
           />
           <button onClick={editLeftLeg}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <label>
@@ -224,11 +231,11 @@ function ImageInputs({ postFetch, patchFetch, setAvatar, userName, avatar }) {
             value={rightLeg}
           />
           <button onClick={editRightLeg}>Edit</button>
-          <button>Delete</button>
         </label>
 
         <input style={{ alignSelf: "center" }} type="submit" />
       </form>
+      <button onClick={deleteAvatar}>Delete</button>
     </div>
   );
 }

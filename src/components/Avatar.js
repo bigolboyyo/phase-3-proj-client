@@ -9,6 +9,7 @@ function Avatar({ avatar }) {
         alignItems: "center",
       }}
     >
+      <h1 style={{ paddingBottom: "1rem" }}>{avatar.avatar_name}</h1>
       <img
         style={{ height: "50px", width: "50px" }}
         src={avatar.head}

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import ImageInputs from "./ImageInputs";
 import Avatar from "./Avatar";
 
-function Body({ postFetch, userName, patchFetch }) {
-  const [avatar, setAvatar] = useState({});
-
+function Body({
+  postFetch,
+  userName,
+  patchFetch,
+  deleteFetch,
+  avatar,
+  setAvatar,
+}) {
   return (
     <div
       style={{
@@ -20,6 +25,7 @@ function Body({ postFetch, userName, patchFetch }) {
         setAvatar={setAvatar}
         postFetch={postFetch}
         patchFetch={patchFetch}
+        deleteFetch={deleteFetch}
         userName={userName}
       />
       <Avatar avatar={avatar} />

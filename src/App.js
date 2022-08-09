@@ -9,6 +9,7 @@ const url = "http://localhost:9292";
 function App() {
   const [userName, setUserName] = useState("");
   const [users, setUsers] = useState([]);
+  const [avatar, setAvatar] = useState({});
   console.log(users);
 
   const getFetch = (endpoint, cb) => {
@@ -50,7 +51,10 @@ function App() {
       .then((r) => r.json())
       .then((dta) => {
         console.log(dta);
+        const updated_avatar = { ...avatar };
+        updated_avatar[k] = v;
         cb(dta[k]);
+        setAvatar(updated_avatar);
       });
   }
 
@@ -58,7 +62,6 @@ function App() {
     fetch(`${url}/${ep}/${id}`, {
       method: "DELETE",
     });
-    getFetch(ep, setUsers);
   }
 
   useEffect(() => {
@@ -72,6 +75,8 @@ function App() {
       <Header />
       <Login userName={userName} setUserName={setUserName} />
       <Body
+        avatar={avatar}
+        setAvatar={setAvatar}
         postFetch={postFetch}
         patchFetch={patchFetch}
         deleteFetch={deleteFetch}
