@@ -69,8 +69,8 @@ function ImageInputs({ postFetch, setAvatar, userName }) {
     };
     console.log(avatar_rb);
     setAvatar(avatar_rb);
-    postFetch("avatars", setAvatar, avatar_rb);
     postFetch("users", undefined, user_rb);
+    postFetch("avatars", setAvatar, avatar_rb);
     setAvName("");
     setHead("");
     setTorso("");
