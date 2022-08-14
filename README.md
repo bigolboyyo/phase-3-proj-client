@@ -17,4 +17,4 @@ Insert image (preferably .pngs) image addresses of different body parts to creat
 - add galleries
 - all the CSS!
 
-  Thanks for checking it out. This is my first official fullstack project.
+Thanks for checking it out. This is my first official fullstack project.
