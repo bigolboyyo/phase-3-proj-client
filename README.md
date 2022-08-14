@@ -1,5 +1,6 @@
-Phase 3 Project - Avatar Creator Frontend Repo
-Dev: Wesley Grant
+# Phase 3 Project - Avatar Creator Frontend Repo
+
+# Dev: Wesley Grant
 
 Welcome to my phase 3 project for FlatIron School's software development program.
 
@@ -9,7 +10,8 @@ This has a super simple React frontend as the project was mainly focused around 
 
 Insert image (preferably .pngs) image addresses of different body parts to create a custom avatar!
 
-Future plans:
+# Future plans:
+
 add adjustable image sliders
 add user login
 add galleries
