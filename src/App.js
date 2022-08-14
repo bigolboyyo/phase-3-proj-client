@@ -12,6 +12,7 @@ function App() {
   const [userName, setUserName] = useState("");
   const [users, setUsers] = useState([]);
   const [avatar, setAvatar] = useState({});
+
   console.log(users);
 
   const getFetch = (endpoint, cb) => {
@@ -69,8 +70,6 @@ function App() {
   useEffect(() => {
     getFetch("avatars", setUsers);
   }, []);
-
-  // console.log(users);
 
   return (
     <div className="App">
