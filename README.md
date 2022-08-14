@@ -12,8 +12,8 @@ Insert image (preferably .pngs) image addresses of different body parts to creat
 
 # Future plans:
 
-add adjustable image sliders
-add user login
-add galleries
-all the CSS!
-Thanks for checking it out. This is my first official fullstack project.
+- add adjustable image sliders
+- add user login
+- add galleries
+- all the CSS!
+  Thanks for checking it out. This is my first official fullstack project.
