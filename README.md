@@ -16,4 +16,5 @@ Insert image (preferably .pngs) image addresses of different body parts to creat
 - add user login
 - add galleries
 - all the CSS!
+
   Thanks for checking it out. This is my first official fullstack project.
