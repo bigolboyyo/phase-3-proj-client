@@ -12,6 +12,7 @@ function App() {
   const [userName, setUserName] = useState("");
   const [users, setUsers] = useState([]);
   const [avatar, setAvatar] = useState({});
+  const [allAvatars, setAllAvatars] = useState([]);
 
   console.log(users);
 
@@ -83,6 +84,10 @@ function App() {
         deleteFetch={deleteFetch}
         setUsers={setUsers}
         userName={userName}
+        getFetch={getFetch}
+        allAvatars={allAvatars}
+        setAllAvatars={setAllAvatars}
+        url={url}
       />
     </div>
   );

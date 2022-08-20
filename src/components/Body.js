@@ -1,6 +1,7 @@
 import React from "react";
 import ImageInputs from "./ImageInputs";
 import Avatar from "./Avatar";
+import AllAvatars from "./AllAvatars";
 
 function Body({
   postFetch,
@@ -9,6 +10,10 @@ function Body({
   deleteFetch,
   avatar,
   setAvatar,
+  getFetch,
+  allAvatars,
+  setAllAvatars,
+  url,
 }) {
   return (
     <div
@@ -29,6 +34,14 @@ function Body({
         userName={userName}
       />
       <Avatar avatar={avatar} />
+      <AllAvatars
+        getFetch={getFetch}
+        setAllAvatars={setAllAvatars}
+        allAvatars={allAvatars}
+        setAvatar={setAvatar}
+        url={url}
+        avatar={avatar}
+      />
     </div>
   );
 }
