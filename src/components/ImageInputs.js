@@ -24,25 +24,25 @@ function ImageInputs({
 
   function handleHeadChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setHead(e.target.value);
   }
 
   function handleTorsoChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setTorso(e.target.value);
   }
 
   function handleLeftArmChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setLeftArm(e.target.value);
   }
 
   function handleRightArmChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setRightArm(e.target.value);
   }
 
@@ -54,7 +54,7 @@ function ImageInputs({
 
   function handleRightLegChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setRightLeg(e.target.value);
   }
 
