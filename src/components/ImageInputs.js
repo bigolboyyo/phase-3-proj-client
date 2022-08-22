@@ -18,7 +18,7 @@ function ImageInputs({
 
   function handleAvNameChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setAvName(e.target.value);
   }
 
@@ -48,7 +48,7 @@ function ImageInputs({
 
   function handleLeftLegChange(e) {
     e.preventDefault();
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setLeftLeg(e.target.value);
   }
 
@@ -74,7 +74,7 @@ function ImageInputs({
       user_name: userName,
       avatar_name: avName,
     };
-    console.log(avatar_rb);
+    //console.log(avatar_rb);
     setAvatar(avatar_rb);
     postFetch("users", undefined, user_rb);
     postFetch("avatars", setAvatar, avatar_rb);

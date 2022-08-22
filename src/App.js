@@ -10,11 +10,11 @@ const url = "https://p3av-backend.herokuapp.com";
 
 function App() {
   const [userName, setUserName] = useState("");
-  const [users, setUsers] = useState([]);
+  //const [users, setUsers] = useState([]);
   const [avatar, setAvatar] = useState({});
   const [allAvatars, setAllAvatars] = useState([]);
 
-  console.log(users);
+  //console.log(users);
 
   const getFetch = (endpoint, cb) => {
     fetch(`${url}/${endpoint}`)
@@ -68,9 +68,9 @@ function App() {
     });
   }
 
-  useEffect(() => {
-    getFetch("avatars", setUsers);
-  }, []);
+  // useEffect(() => {
+  //   getFetch("avatars", setUsers);
+  // }, []);
 
   return (
     <div className="App">
@@ -82,7 +82,7 @@ function App() {
         postFetch={postFetch}
         patchFetch={patchFetch}
         deleteFetch={deleteFetch}
-        setUsers={setUsers}
+        //setUsers={setUsers}
         userName={userName}
         getFetch={getFetch}
         allAvatars={allAvatars}
